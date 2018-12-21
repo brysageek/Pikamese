@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Pikamese"
-             x:Class="Pikamese.MainPage">
+             x:Class="Pikamese.MainPage"
+             Title="Connections">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout 
+        BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        <Button Text="Create new"/>
+<!-- Place new controls here -->
+        <ListView ItemsSource="{Binding MyList}">
+
+        </ListView>
     </StackLayout>
-
 </ContentPage>

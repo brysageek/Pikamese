@@ -14,6 +14,9 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Pikamese,Shared\Pikamese.projitems*{15d0b3e8-591e-4ddf-bd3d-a2dfeaf834bd}*SharedItemsImports = 13
+		Pikamese,Shared\Pikamese.projitems*{279e87d4-5c57-45d7-8817-fe598e6ccaf9}*SharedItemsImports = 4
+		Pikamese,Shared\Pikamese.projitems*{298799ec-3ffa-46dc-883f-cb30eccdac37}*SharedItemsImports = 4
+		Pikamese,Shared\Pikamese.projitems*{67fc0095-5c06-4d22-9d62-c1045ee9c231}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

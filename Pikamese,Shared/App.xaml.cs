@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Ioc;
+using Pikamese.Services;
+using Pikamese.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +12,14 @@ namespace Pikamese
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            var navigationService = new NavigationService();
+            navigationService.RegisterView<MainPage>();
+            navigationService.RegisterView<PublishPage>();
+            navigationService.RegisterView<ConnectionPage>();
+            navigationService.RegisterView<SubscribePage>();
+            var navigationPage = new NavigationPage(new MainPage());
+            navigationService.Initialize(navigationPage);
+            MainPage = navigationPage;
         }
 
         protected override void OnStart()
