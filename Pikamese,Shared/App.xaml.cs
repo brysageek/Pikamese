@@ -19,6 +19,7 @@ namespace Pikamese
             navigationService.RegisterView<PublishPage>();
             navigationService.RegisterView<ConnectionPage>();
             navigationService.RegisterView<SubscribePage>();
+            navigationService.RegisterView<SettingsPage>();
             var navigationPage = new NavigationPage(new MainPage());
             navigationService.Initialize(navigationPage);
 

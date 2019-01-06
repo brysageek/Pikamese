@@ -8,6 +8,7 @@ namespace Pikamese.Bootstrap
     {
         public MainViewModel MainViewModel => SimpleIoc.Default.GetInstance<MainViewModel>();
         public ConnectionsViewModel ConnectionsViewModel => SimpleIoc.Default.GetInstance<ConnectionsViewModel>();
+        public SettingsViewModel SettingsViewModel => SimpleIoc.Default.GetInstance<SettingsViewModel>();
 
         public ViewModelLocator()
         {
@@ -15,6 +16,7 @@ namespace Pikamese.Bootstrap
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ConnectionsViewModel>();
+            SimpleIoc.Default.Register<SettingsViewModel>();
         }
     }
 }

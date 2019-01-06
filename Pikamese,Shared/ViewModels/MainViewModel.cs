@@ -27,7 +27,7 @@ namespace Pikamese.ViewModels
             }
         }
 
-        private RelayCommand _navigateConnectionPage;
+        private readonly RelayCommand _navigateConnectionPage;
 
         public ICommand NavigationConnectionPage => _navigateConnectionPage;
 
