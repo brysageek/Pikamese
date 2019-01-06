@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pikamese.Views.ConnectionPage"
              Title="Connection">
-    <ContentPage.Content>
-        <StackLayout>
-            <Entry Placeholder="Name"/>
-            <Entry Placeholder="Hostname"/>
-            <Entry Placeholder="Virtual Host"/>
-            <Entry Placeholder="Username"/>
-            <Entry Placeholder="Password"/>
+    <ContentPage.Content>  
+        <StackLayout BindingContext="{Binding ConnectionsViewModel, Source={StaticResource Locator}}">
+            <Entry Placeholder="Name" Text="{Binding Connection.Name}"/>
+            <Entry Placeholder="Hostname" Text="{Binding Connection.HostName}"/>
+            <Entry Placeholder="Port" Text="{Binding Connection.Port}"/>
+            <Entry Placeholder="Virtual Host" Text="{Binding Connection.VirtualHost}"/>
+            <Entry Placeholder="Username" Text="{Binding Connection.UserName}"/>
+            <Entry Placeholder="Password" Text="{Binding Connection.Password}"/>
+            <Button Text="Add" Command="{Binding SaveConnectionCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

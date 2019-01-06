@@ -11,14 +11,17 @@ namespace Pikamese
     {
         public App()
         {
-            InitializeComponent();
             var navigationService = new NavigationService();
+            SimpleIoc.Default.Register<IExtendedNavigationService>(() => navigationService, true);
+            InitializeComponent();
+
             navigationService.RegisterView<MainPage>();
             navigationService.RegisterView<PublishPage>();
             navigationService.RegisterView<ConnectionPage>();
             navigationService.RegisterView<SubscribePage>();
             var navigationPage = new NavigationPage(new MainPage());
             navigationService.Initialize(navigationPage);
+
             MainPage = navigationPage;
         }
 

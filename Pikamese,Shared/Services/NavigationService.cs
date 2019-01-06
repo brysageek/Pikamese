@@ -106,7 +106,7 @@ namespace Pikamese.Services
 
         public void RegisterView<T>()
         {
-            RegisterView(nameof(T), typeof(T));
+            RegisterView(typeof(T).Name, typeof(T));
         }
     }
 }

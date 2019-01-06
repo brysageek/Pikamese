@@ -17,11 +17,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Bootstrap\ViewModelLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Exchange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Queue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ConnectionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IConnectionsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IExtendedNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ConnectionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PublishViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ConnectionPage.xaml.cs">

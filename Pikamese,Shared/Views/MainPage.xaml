@@ -6,10 +6,21 @@
 
     <StackLayout 
         BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}">
-        <Button Text="Create new"/>
+        <Button Text="Create new" Command="{Binding NavigationConnectionPage}"/>
 <!-- Place new controls here -->
-        <ListView ItemsSource="{Binding MyList}">
-
+        <ListView ItemsSource="{Binding Connections}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="5,5">
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding HostName}"/>
+                            <Label Text="{Binding Port}"/>
+                            <Label Text="{Binding VirtualHost}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 </ContentPage>

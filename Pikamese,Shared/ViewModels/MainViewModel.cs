@@ -1,41 +1,48 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
+using Pikamese.Models;
+using Pikamese.Services;
+using Pikamese.Views;
 
 namespace Pikamese.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private int _marVar;
+        private readonly IConnectionService _connectionService = SimpleIoc.Default.GetInstance<IConnectionService>();
 
-        public int MyVar
+        private readonly IExtendedNavigationService _navigationService = SimpleIoc.Default.GetInstance<IExtendedNavigationService>();
+
+        private ObservableCollection<Connection> _connections;
+
+        public ObservableCollection<Connection> Connections
         {
-            get => _marVar;
+            get => _connections;
             set
             {
-                _marVar = value;
-                RaisePropertyChanged(() => MyVar);
+                _connections = value;
+                RaisePropertyChanged(()=>Connections);
             }
         }
 
-        private ObservableCollection<int> _myList;
+        private RelayCommand _navigateConnectionPage;
 
-        public ObservableCollection<int> MyList
-        {
-            get => _myList;
-            set
-            {
-                _myList = value;
-                RaisePropertyChanged(()=>MyList);
-            }
-        }
+        public ICommand NavigationConnectionPage => _navigateConnectionPage;
 
         public MainViewModel()
         {
-            MyVar = 1;
-            MyList = new ObservableCollection<int>()
+            GetConnections();
+            _navigateConnectionPage = new RelayCommand(() =>
             {
-                1,2,3,78,22
-            };
+                _navigationService.NavigateTo(nameof(ConnectionPage));
+            });
+        }
+
+        private async void GetConnections()
+        {
+            Connections = new ObservableCollection<Connection>(await _connectionService.GetConnections());
         }
     }
 }
