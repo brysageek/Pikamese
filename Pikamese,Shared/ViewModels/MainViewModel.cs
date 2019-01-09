@@ -28,8 +28,13 @@ namespace Pikamese.ViewModels
         }
 
         private readonly RelayCommand _navigateConnectionPage;
-
         public ICommand NavigationConnectionPage => _navigateConnectionPage;
+
+        private readonly RelayCommand _navigationSettingsPage;
+        public ICommand NavigationSettingsPage => _navigationSettingsPage;
+
+        private readonly RelayCommand<Connection> _deleteConnection;
+        public ICommand DeleteConnection => _deleteConnection;
 
         public MainViewModel()
         {
@@ -38,6 +43,17 @@ namespace Pikamese.ViewModels
             {
                 _navigationService.NavigateTo(nameof(ConnectionPage));
             });
+
+            _navigationSettingsPage = new RelayCommand(() =>
+            {
+                _navigationService.NavigateTo(nameof(SettingsPage));
+            });
+
+            _deleteConnection = new RelayCommand<Connection>(async (connection) =>
+                {
+                    await _connectionService.DeleteConnection(connection);
+                    Connections = new ObservableCollection<Connection>(await _connectionService.GetConnections());
+                });
         }
 
         private async void GetConnections()

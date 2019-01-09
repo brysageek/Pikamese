@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pikamese.MainPage"
-             Title="Connections">
-
+             Title="Pikamese">
     <StackLayout 
         BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}">
-        <Button Text="Create new" Command="{Binding NavigationConnectionPage}"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="+" Command="{Binding NavigationConnectionPage}"/>
+            <Button Text="Settings" Command="{Binding NavigationSettingsPage}"/>
+            <Button Text="Delete" Command="{Binding DeleteConnection}" CommandParameter="{Binding SelectedItem,Source={x:Reference ListView}}"/>
+        </StackLayout>
+       
 <!-- Place new controls here -->
-        <ListView ItemsSource="{Binding Connections}">
+        <ListView x:Name="ListView" ItemsSource="{Binding Connections}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

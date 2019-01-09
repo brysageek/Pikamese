@@ -24,9 +24,18 @@ namespace Pikamese.Services
 
         public Task<int> SaveConnection(Connection connection)
         {
-            return connection.Id != 0 
-                ? Database.Default.UpdateAsync(connection) 
-                : Database.Default.InsertAsync(connection);
+            if (connection.Id!=0)
+            {
+                return Database.Default.UpdateAsync(connection);
+            }
+            else
+            {
+                return Database.Default.InsertAsync(connection);
+            }
+
+            //return connection.Id != 0 
+            //    ? Database.Default.UpdateAsync(connection) 
+            //    : Database.Default.InsertAsync(connection);
         }
         public Task<int> DeleteConnection(Connection connection)
         {

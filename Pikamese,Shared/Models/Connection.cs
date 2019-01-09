@@ -1,7 +1,9 @@
-﻿namespace Pikamese.Models
+﻿using SQLite;
+namespace Pikamese.Models
 {
     public class Connection
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
         public string HostName { get; set; }
@@ -12,7 +14,7 @@
 
         public Connection()
         {
-            Id = 0;
+            //Id = 0;
             Name = "";
             HostName = "";
             Port = 5671;
