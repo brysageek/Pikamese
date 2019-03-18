@@ -1,4 +1,4 @@
-Pikamese
+ Pikamese
 --------
 ## RabbitMQ Monitoring Tools
 
@@ -6,6 +6,6 @@ Pikamese
 var test = 
 ```
 
--[ ] Figure out how to markdown
--[ ] Write something to parse it
--[x] test how to do
+- [ ] Figure out how to markdown
+- [ ] Write something to parse it
+- [x] test how to do
